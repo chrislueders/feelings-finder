@@ -26,7 +26,7 @@ body {
 
 .main-container {
   width: 100%;
-  max-width: 600px;
+  max-width: 800px; /* Increased for better desktop layout */
 }
 
 .App {
@@ -36,9 +36,9 @@ body {
   position: relative;
   width: 100%;
   margin: 0 auto;
-  padding: 20px;
+  padding: 40px; /* Increased padding */
   text-align: center;
-  min-height: calc(100vh - 40px);
+  min-height: calc(100vh - 80px); /* Adjusted for increased padding */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -51,15 +51,22 @@ body {
 }
 
 .emotion-button-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px; /* Increased gap */
   max-width: 100%;
 }
 
 .emotion-button {
   text-transform: capitalize;
   transition: filter 0.3s ease;
-  margin: 5px;
-  flex: 1 0 calc(33.333% - 10px);
-  max-width: calc(33.333% - 10px);
+  flex: 0 1 calc(33.333% - 15px); /* Adjusted for new gap */
+  max-width: calc(33.333% - 15px);
+  min-width: 120px; /* Ensure buttons don't get too small */
+  white-space: normal; /* Allow text to wrap */
+  height: auto; /* Allow height to adjust to content */
+  padding: 10px 15px; /* Adjust padding as needed */
 }
 
 .language-toggle {
@@ -71,11 +78,12 @@ body {
 
 .app-title {
   margin-bottom: 30px !important;
-  font-size: 2rem !important;
+  font-size: 2.5rem !important;
 }
 
 .instruction-text {
-  font-size: 1.2rem !important;
+  font-size: 1.4rem !important;
+  margin-bottom: 20px !important;
 }
 
 .success-page {
@@ -87,32 +95,76 @@ body {
 }
 
 .emotion-icon {
-  font-size: 4rem !important;
+  font-size: 5rem !important;
 }
 
 .feeling-text {
-  font-size: 1.5rem !important;
+  font-size: 1.8rem !important;
 }
 
 .emotion-text {
-  font-size: 2rem !important;
+  font-size: 2.5rem !important;
 }
 
 .quote-container {
-  max-width: 90%;
-  margin: 20px auto;
+  max-width: 80%;
+  margin: 30px auto;
 }
 
 .quote-text {
-  font-size: 1rem !important;
+  font-size: 1.2rem !important;
 }
 
 .quote-source {
-  font-size: 0.8rem !important;
+  font-size: 0.9rem !important;
 }
 
 .start-over-button {
-  margin-top: 20px !important;
+  margin-top: 30px !important;
+}
+
+@media (max-width: 768px) {
+  .main-container {
+    max-width: 100%;
+  }
+
+  .App {
+    padding: 20px;
+    min-height: calc(100vh - 40px);
+  }
+
+  .app-title {
+    font-size: 2rem !important;
+  }
+
+  .instruction-text {
+    font-size: 1.2rem !important;
+  }
+
+  .emotion-button {
+    flex: 0 1 calc(50% - 15px);
+    max-width: calc(50% - 15px);
+  }
+
+  .emotion-icon {
+    font-size: 4rem !important;
+  }
+
+  .feeling-text {
+    font-size: 1.5rem !important;
+  }
+
+  .emotion-text {
+    font-size: 2rem !important;
+  }
+
+  .quote-text {
+    font-size: 1rem !important;
+  }
+
+  .quote-source {
+    font-size: 0.8rem !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -121,28 +173,28 @@ body {
   }
 
   .app-title {
-    font-size: 1.5rem !important;
+    font-size: 1.8rem !important;
   }
 
   .instruction-text {
-    font-size: 1rem !important;
+    font-size: 1.1rem !important;
   }
 
   .emotion-button {
-    flex: 1 0 calc(50% - 10px);
-    max-width: calc(50% - 10px);
+    flex: 0 1 100%;
+    max-width: 100%;
   }
 
   .emotion-icon {
-    font-size: 3rem !important;
+    font-size: 3.5rem !important;
   }
 
   .feeling-text {
-    font-size: 1.2rem !important;
+    font-size: 1.3rem !important;
   }
 
   .emotion-text {
-    font-size: 1.5rem !important;
+    font-size: 1.8rem !important;
   }
 
   .quote-text {
