@@ -205,3 +205,63 @@ body {
     font-size: 0.7rem !important;
   }
 }
+
+.rt-AccordionTrigger {
+  font-family: inherit;
+  background-color: transparent;
+  padding: 0 10px;
+  height: 45px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 15px;
+  line-height: 1;
+  color: var(--gray-12);
+  box-shadow: 0 1px 0 var(--gray-6);
+}
+
+.rt-AccordionTrigger:hover {
+  background-color: var(--gray-2);
+}
+
+.rt-AccordionContent {
+  overflow: hidden;
+  font-size: 15px;
+  color: var(--gray-11);
+  background-color: var(--gray-2);
+}
+
+.rt-AccordionContent[data-state='open'] {
+  animation: slideDown 300ms cubic-bezier(0.87, 0, 0.13, 1);
+}
+
+.rt-AccordionContent[data-state='closed'] {
+  animation: slideUp 300ms cubic-bezier(0.87, 0, 0.13, 1);
+}
+
+.rt-AccordionChevron {
+  transition: transform 300ms cubic-bezier(0.87, 0, 0.13, 1);
+}
+
+.rt-AccordionTrigger[data-state='open'] > .rt-AccordionChevron {
+  transform: rotate(180deg);
+}
+
+@keyframes slideDown {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}

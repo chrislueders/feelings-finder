@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useParams, useNavigate } from 'react-router-dom';
-import { Theme, Button, Flex, Box, Text, Container } from '@radix-ui/themes';
-import { ReloadIcon, ArrowLeftIcon } from '@radix-ui/react-icons';
+import { Theme, Button, Flex, Box, Text, Container, Accordion } from '@radix-ui/themes';
+import { ReloadIcon, ArrowLeftIcon, ChevronDownIcon } from '@radix-ui/react-icons';
 import { emotionsData } from './emotionsData';
 import '@radix-ui/themes/styles.css';
 import './styles.css';
@@ -14,7 +14,19 @@ const translations = {
     youAreFeeling: "You are feeling",
     startOver: "Start Over",
     back: "Back",
-    emotionalWordWheel: "Feelings Finder"
+    emotionalWordWheel: "Feelings Finder",
+    accordionTitle: "What is the Feelings Finder for?",
+    accordionContent: `The Feelings Finder is based on Geoffrey Roberts' Emotional Word Wheel, a powerful tool for emotional intelligence and self-awareness. This wheel helps individuals identify and articulate their emotions with greater precision, promoting better understanding of oneself and improved communication with others.
+
+    Roberts' Emotional Word Wheel categorizes emotions in a hierarchical structure, starting from basic emotions and branching out to more specific feelings. This approach allows users to navigate through different levels of emotional nuance, helping them pinpoint exactly what they're experiencing.
+
+    By using this digital adaptation of the Emotional Word Wheel, you can:
+    1. Enhance your emotional vocabulary
+    2. Gain deeper insights into your emotional states
+    3. Improve your ability to express feelings accurately
+    4. Develop greater empathy by understanding the complexity of emotions
+
+    We hope this tool helps you on your journey of emotional discovery and self-improvement. Remember, recognizing and naming your emotions is the first step towards managing them effectively.`
   },
   de: {
     chooseEmotion: "Wähle eine Emotion",
@@ -23,7 +35,20 @@ const translations = {
     youAreFeeling: "Du fühlst dich",
     startOver: "Neu starten",
     back: "Zurück",
-    emotionalWordWheel: "Gefühle Finder"
+    emotionalWordWheel: "Gefühle Finder",
+    accordionTitle: "Wofür ist der Gefühle Finder gut?",
+    accordionContent: `Der Gefühle Finder basiert auf Geoffrey Roberts' Emotional Word Wheel (Emotionales Wortrad), einem leistungsstarken Werkzeug für emotionale Intelligenz und Selbstwahrnehmung. Dieses Rad hilft Menschen, ihre Gefühle präziser zu identifizieren und zu artikulieren, was zu einem besseren Verständnis seiner selbst und einer verbesserten Kommunikation mit anderen führt.
+
+    Roberts' Emotionales Wortrad kategorisiert Gefühle in einer hierarchischen Struktur, beginnend mit grundlegenden Emotionen und verzweigt sich zu spezifischeren Gefühlen. Dieser Ansatz ermöglicht es Benutzern, durch verschiedene Ebenen emotionaler Nuancen zu navigieren und hilft ihnen, genau zu erkennen, was sie gerade empfinden.
+
+    Durch die Verwendung dieser digitalen Adaption des Emotionalen Wortrads können Sie:
+    1. Ihren emotionalen Wortschatz erweitern
+    2. Tiefere Einblicke in Ihre Gefühlszustände gewinnen
+    3. Ihre Fähigkeit verbessern, Gefühle genau auszudrücken
+    4. Größere Empathie entwickeln, indem Sie die Komplexität von Emotionen verstehen
+
+    Wir hoffen, dass dieses Werkzeug Ihnen auf Ihrer Reise der emotionalen Entdeckung und Selbstverbesserung hilft. Denken Sie daran: Das Erkennen und Benennen Ihrer Gefühle ist der erste Schritt, um sie effektiv zu handhaben.`
+  
   }
 };
 
@@ -170,12 +195,24 @@ function EmotionSelector({ emotions, level, parentEmotion, language }) {
 
   return (
     <Box className="emotion-selector">
-      <Text size="5" mb="4" weight="bold" className="instruction-text">
+      {level === 0 && (
+        <Accordion.Root type="single" collapsible>
+          <Accordion.Item value="explanation">
+            <Accordion.Trigger>{t.accordionTitle}</Accordion.Trigger>
+            <Accordion.Content>
+              <Text size="2" style={{ whiteSpace: 'pre-line' }}>
+                {t.accordionContent}
+              </Text>
+            </Accordion.Content>
+          </Accordion.Item>
+        </Accordion.Root>
+      )}
+      <Text size="5" mb="4" weight="bold">
         {level === 0 ? t.chooseEmotion :
          level === 1 ? t.chooseMoreSpecific :
          t.chooseMostSpecific}
       </Text>
-      <Flex wrap="wrap" gap="2" justify="center" mb="4" className="emotion-button-container">
+      <Flex wrap="wrap" gap="2" justify="center" mb="4">
         {Object.keys(emotions).map(emotion => (
           <EmotionButton 
             key={emotion} 
@@ -193,7 +230,7 @@ function EmotionSelector({ emotions, level, parentEmotion, language }) {
         ))}
       </Flex>
       {level > 0 && (
-        <Button variant="outline" onClick={() => navigate(-1)} className="back-button">
+        <Button variant="outline" onClick={() => navigate(-1)}>
           <ArrowLeftIcon /> {t.back}
         </Button>
       )}
