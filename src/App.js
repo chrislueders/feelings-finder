@@ -259,6 +259,7 @@ function SuccessPage({ language }) {
       </Text>
       <Box className="quote-container">
         <Text size="3" style={{ fontStyle: 'italic' }} className="quote-text">"{quote.quote}"</Text>
+        <br />
         <Text size="2" style={{ color: 'var(--gray-8)' }} className="quote-source">Alan Watts, {quote.source}</Text>
       </Box>
       <Button onClick={() => navigate('/')} className="start-over-button">
