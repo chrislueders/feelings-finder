@@ -197,11 +197,14 @@ function EmotionSelector({ emotions, level, parentEmotion, language }) {
   return (
     <Box className="emotion-selector">
       {level === 0 && (
-        <Accordion.Root type="single" collapsible>
-          <Accordion.Item value="explanation">
-            <Accordion.Trigger>{t.accordionTitle}</Accordion.Trigger>
-            <Accordion.Content>
-              <Text size="2" style={{ whiteSpace: 'pre-line' }}>
+        <Accordion.Root type="single" collapsible className="AccordionRoot">
+          <Accordion.Item value="explanation" className="AccordionItem">
+            <Accordion.Trigger className="AccordionTrigger">
+              {t.accordionTitle}
+              <ChevronDownIcon className="AccordionChevron" aria-hidden />
+            </Accordion.Trigger>
+            <Accordion.Content className="AccordionContent">
+              <Text size="2" style={{ whiteSpace: 'pre-line', textAlign: 'left' }}>
                 {t.accordionContent}
               </Text>
             </Accordion.Content>
@@ -250,18 +253,17 @@ function SuccessPage({ language }) {
   return (
     <Box className="success-page">
       <Flex direction="column" align="center" gap="4">
-        <Text size="9" className="emotion-icon">{icon}</Text>
-        <Text size="6" className="feeling-text">{t.youAreFeeling}</Text>
-        <Text size="8" weight="bold" style={{ color: `var(--${color}-11)` }} className="emotion-text">
+        <Text size="9">{icon}</Text>
+        <Text size="6">{t.youAreFeeling}</Text>
+        <Text size="8" weight="bold" style={{ color: `var(--${color}-11)` }}>
           {emotionTranslations[language][emotion] || emotion}
         </Text>
         <Box mt="4" mb="4" className="quote-container">
           <Text size="3" style={{ fontStyle: 'italic' }} className="quote-text">"{quote.quote}"</Text>
-          <br />
           <Text size="2" mt="2" style={{ color: 'var(--gray-8)' }} className="quote-source">Alan Watts, {quote.source}</Text>
         </Box>
       </Flex>
-      <Button onClick={() => navigate('/')} mt="6" className="start-over-button">
+      <Button onClick={() => navigate('/')} mt="6">
         <ReloadIcon /> {t.startOver}
       </Button>
     </Box>
@@ -302,7 +304,7 @@ function App() {
     <Theme accentColor={accentColor} radius="large" scaling="105%">
       <Router>
         <Box className="page-background" style={{ backgroundColor: `var(--${accentColor}-2)` }}>
-          <Container size="2" className="main-container">
+          <Container size="2">
             <Box className="App">
               <Button 
                 className="language-toggle" 
