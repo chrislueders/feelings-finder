@@ -14,7 +14,7 @@ const translations = {
     youAreFeeling: "You are feeling",
     startOver: "Start Over",
     back: "Back",
-    emotionalWordWheel: "Emotional Word Wheel"
+    emotionalWordWheel: "Feelings Finder"
   },
   de: {
     chooseEmotion: "Wähle eine Emotion",
@@ -23,7 +23,7 @@ const translations = {
     youAreFeeling: "Du fühlst dich",
     startOver: "Neu starten",
     back: "Zurück",
-    emotionalWordWheel: "Emotionales Wortrad"
+    emotionalWordWheel: "Gefühle Finder"
   }
 };
 
@@ -219,6 +219,7 @@ function SuccessPage({ language }) {
         </Text>
         <Box mt="4" mb="4" className="quote-container">
           <Text size="3" style={{ fontStyle: 'italic' }} className="quote-text">"{quote.quote}"</Text>
+          <br />
           <Text size="2" mt="2" style={{ color: 'var(--gray-8)' }} className="quote-source">Alan Watts, {quote.source}</Text>
         </Box>
       </Flex>
