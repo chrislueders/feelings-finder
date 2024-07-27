@@ -232,7 +232,7 @@ body {
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 480px) {
   .page-background {
     padding: 10px;
   }
