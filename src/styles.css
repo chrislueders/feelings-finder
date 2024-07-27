@@ -51,7 +51,7 @@ body, html, #root {
   flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 40px; /* Increased from 30px */
 }
 
 .emotion-button {
@@ -80,13 +80,19 @@ body, html, #root {
   margin-top: 30px;
 }
 
+.emotion-instruction {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 40px; /* Increased from 20px */
+}
+
 /* Radix UI Accordion Styles */
 .AccordionRoot {
   width: 100%;
   border-radius: 6px;
   background-color: var(--gray-2);
   box-shadow: 0 1px 2px var(--gray-6);
-  margin-bottom: 30px;
+  margin-bottom: 40px; /* Increased from 30px */
 }
 
 .AccordionItem {
@@ -140,7 +146,7 @@ body, html, #root {
 }
 
 .start-over-button {
-  margin-top: 30px;
+  margin-top: 40px; /* Increased from 30px */
 }
 
 @media (max-width: 480px) {
@@ -161,5 +167,14 @@ body, html, #root {
   .language-toggle {
     top: 15px;
     left: 15px;
+  }
+
+  .emotion-instruction {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+
+  .emotion-button-container {
+    margin-top: 30px;
   }
 }

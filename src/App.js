@@ -196,28 +196,12 @@ function EmotionSelector({ emotions, level, parentEmotion, language }) {
 
   return (
     <Box className="emotion-selector">
-      {level === 0 && (
-        <Accordion.Root type="single" collapsible className="AccordionRoot">
-          <Accordion.Item value="explanation" className="AccordionItem">
-            <Accordion.Trigger className="AccordionTrigger">
-              {t.accordionTitle}
-              <ChevronDownIcon className="AccordionChevron" aria-hidden />
-            </Accordion.Trigger>
-            <Accordion.Content className="AccordionContent">
-              <Text size="2" style={{ whiteSpace: 'pre-line', textAlign: 'left' }}>
-                {t.accordionContent}
-              </Text>
-            </Accordion.Content>
-          </Accordion.Item>
-        </Accordion.Root>
-      )}
-      <br />
-      <Text size="5" mb="4" weight="bold">
+      <Text className="emotion-instruction">
         {level === 0 ? t.chooseEmotion :
          level === 1 ? t.chooseMoreSpecific :
          t.chooseMostSpecific}
       </Text>
-      <Flex wrap="wrap" gap="2" justify="center" mb="4">
+      <Flex className="emotion-button-container">
         {Object.keys(emotions).map(emotion => (
           <EmotionButton 
             key={emotion} 
@@ -235,7 +219,7 @@ function EmotionSelector({ emotions, level, parentEmotion, language }) {
         ))}
       </Flex>
       {level > 0 && (
-        <Button variant="outline" onClick={() => navigate(-1)}>
+        <Button variant="outline" onClick={() => navigate(-1)} className="start-over-button">
           <ArrowLeftIcon /> {t.back}
         </Button>
       )}
