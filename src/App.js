@@ -196,6 +196,21 @@ function EmotionSelector({ emotions, level, parentEmotion, language }) {
 
   return (
     <Box className="emotion-selector">
+      {level === 0 && (
+        <Accordion.Root type="single" collapsible className="AccordionRoot">
+          <Accordion.Item value="explanation" className="AccordionItem">
+            <Accordion.Trigger className="AccordionTrigger">
+              {t.accordionTitle}
+              <ChevronDownIcon className="AccordionChevron" aria-hidden />
+            </Accordion.Trigger>
+            <Accordion.Content className="AccordionContent">
+              <Text style={{ whiteSpace: 'pre-line', textAlign: 'left' }}>
+                {t.accordionContent}
+              </Text>
+            </Accordion.Content>
+          </Accordion.Item>
+        </Accordion.Root>
+      )}
       <Text className="emotion-instruction">
         {level === 0 ? t.chooseEmotion :
          level === 1 ? t.chooseMoreSpecific :
