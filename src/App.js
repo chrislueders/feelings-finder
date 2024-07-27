@@ -302,33 +302,29 @@ function App() {
   const [accentColor, setAccentColor] = useState('blue');
 
   return (
-    <Theme accentColor={accentColor} radius="large" scaling="100%">
+    <Theme accentColor={accentColor} radius="large" scaling="105%">
       <Router>
         <Box className="page-background" style={{ backgroundColor: `var(--${accentColor}-2)` }}>
-          <Container size="2">
-            <Box className="App">
-              <Button 
-                className="language-toggle" 
-                variant="ghost"
-                size="4"
-                onClick={() => setLanguage(language === 'en' ? 'de' : 'en')}
-              >
-                {language === 'en' ? '🇩🇪' : '🇬🇧'}
-              </Button>
-              <Flex direction="column" align="center" gap="4">
-                <Text className="app-title" size="8" weight="bold">
-                  {translations[language].emotionalWordWheel}
-                </Text>
-                <Routes>
-                  <Route path="/" element={<EmotionRoute language={language} setAccentColor={setAccentColor} />} />
-                  <Route path="/:emotion" element={<EmotionRoute language={language} setAccentColor={setAccentColor} />} />
-                  <Route path="/:emotion/:subEmotion" element={<EmotionRoute language={language} setAccentColor={setAccentColor} />} />
-                  <Route path="/:emotion/:subEmotion/:subSubEmotion" element={<EmotionRoute language={language} setAccentColor={setAccentColor} />} />
-                  <Route path="/success/:parentEmotion/:emotion" element={<SuccessPage language={language} />} />
-                </Routes>
-              </Flex>
-            </Box>
-          </Container>
+          <Box className="App" style={{ maxWidth: '600px', width: '100%' }}>
+            <Button 
+              className="language-toggle" 
+              variant="ghost"
+              size="4"
+              onClick={() => setLanguage(language === 'en' ? 'de' : 'en')}
+            >
+              {language === 'en' ? '🇩🇪' : '🇬🇧'}
+            </Button>
+            <Text className="app-title">
+              {translations[language].emotionalWordWheel}
+            </Text>
+            <Routes>
+              <Route path="/" element={<EmotionRoute language={language} setAccentColor={setAccentColor} />} />
+              <Route path="/:emotion" element={<EmotionRoute language={language} setAccentColor={setAccentColor} />} />
+              <Route path="/:emotion/:subEmotion" element={<EmotionRoute language={language} setAccentColor={setAccentColor} />} />
+              <Route path="/:emotion/:subEmotion/:subSubEmotion" element={<EmotionRoute language={language} setAccentColor={setAccentColor} />} />
+              <Route path="/success/:parentEmotion/:emotion" element={<SuccessPage language={language} />} />
+            </Routes>
+          </Box>
         </Box>
       </Router>
     </Theme>
