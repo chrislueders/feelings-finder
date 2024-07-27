@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useParams, useNavigate } from 'react-router-dom';
-import { Theme, Button, Flex, Box, Text, Container, Accordion } from '@radix-ui/themes';
+import { Theme, Button, Flex, Box, Text, Container } from '@radix-ui/themes';
+import * as Accordion from '@radix-ui/react-accordion';
 import { ReloadIcon, ArrowLeftIcon, ChevronDownIcon } from '@radix-ui/react-icons';
 import { emotionsData } from './emotionsData';
 import '@radix-ui/themes/styles.css';
