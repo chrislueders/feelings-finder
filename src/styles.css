@@ -18,7 +18,7 @@ body, html, #root {
 }
 
 .page-background {
-  min-height: 100%;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,12 +39,14 @@ body, html, #root {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  overflow-x: hidden;
 }
 
 .emotion-selector {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .emotion-button-container {
@@ -65,6 +67,7 @@ body, html, #root {
   height: auto;
   padding: 10px 5px;
   font-size: 14px;
+  box-sizing: border-box;
 }
 
 .language-toggle {
@@ -90,6 +93,7 @@ body, html, #root {
   align-items: center;
   justify-content: center;
   height: 100%;
+  width: 100%;
 }
 
 .emotion-icon {
@@ -105,12 +109,16 @@ body, html, #root {
 }
 
 .quote-container {
+  width: 100%;
   max-width: 100%;
   margin: 20px auto;
+  padding: 0 10px;
+  box-sizing: border-box;
 }
 
 .quote-text {
   font-size: 1rem !important;
+  word-wrap: break-word;
 }
 
 .quote-source {
@@ -128,6 +136,7 @@ body, html, #root {
   box-shadow: 0 1px 2px var(--gray-a4);
   border: 1px solid var(--gray-a3);
   margin-bottom: 20px !important;
+  box-sizing: border-box;
 }
 
 .AccordionItem {
@@ -149,6 +158,7 @@ body, html, #root {
   width: 100%;
   border: none;
   cursor: pointer;
+  box-sizing: border-box;
 }
 
 .AccordionTrigger:hover {
@@ -162,6 +172,7 @@ body, html, #root {
   background-color: var(--gray-2);
   padding: 10px 15px;
   text-align: left;
+  box-sizing: border-box;
 }
 
 .AccordionContent[data-state='open'] {
@@ -196,8 +207,8 @@ body, html, #root {
   }
 
   .emotion-button {
-    flex: 1 1 100%;
-    max-width: 100%;
+    flex: 0 0 calc(50% - 10px);
+    max-width: calc(50% - 10px);
     font-size: 12px;
     padding: 8px 4px;
   }
