@@ -15,6 +15,7 @@ body, html, #root {
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 .page-background {
@@ -60,7 +61,7 @@ body, html, #root {
 .emotion-button {
   text-transform: capitalize;
   transition: filter 0.3s ease;
-  flex: 1 1 calc(50% - 10px);
+  flex: 1 0 calc(50% - 10px);
   max-width: calc(50% - 10px);
   min-width: 0;
   white-space: normal;
@@ -80,11 +81,13 @@ body, html, #root {
 .app-title {
   margin-bottom: 20px !important;
   font-size: 2rem !important;
+  word-wrap: break-word;
 }
 
 .instruction-text {
   font-size: 1.2rem !important;
   margin-bottom: 15px !important;
+  word-wrap: break-word;
 }
 
 .success-page {
@@ -102,10 +105,12 @@ body, html, #root {
 
 .feeling-text {
   font-size: 1.5rem !important;
+  word-wrap: break-word;
 }
 
 .emotion-text {
   font-size: 2rem !important;
+  word-wrap: break-word;
 }
 
 .quote-container {
@@ -123,6 +128,7 @@ body, html, #root {
 
 .quote-source {
   font-size: 0.8rem !important;
+  word-wrap: break-word;
 }
 
 .start-over-button {
@@ -206,9 +212,13 @@ body, html, #root {
     padding: 15px;
   }
 
+  .emotion-button-container {
+    gap: 5px;
+  }
+
   .emotion-button {
-    flex: 0 0 calc(50% - 10px);
-    max-width: calc(50% - 10px);
+    flex: 0 0 calc(50% - 5px);
+    max-width: calc(50% - 5px);
     font-size: 12px;
     padding: 8px 4px;
   }
