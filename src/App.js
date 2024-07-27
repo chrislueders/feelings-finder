@@ -170,12 +170,12 @@ function EmotionSelector({ emotions, level, parentEmotion, language }) {
 
   return (
     <Box className="emotion-selector">
-      <Text size="5" mb="4" weight="bold">
+      <Text size="5" mb="4" weight="bold" className="instruction-text">
         {level === 0 ? t.chooseEmotion :
          level === 1 ? t.chooseMoreSpecific :
          t.chooseMostSpecific}
       </Text>
-      <Flex wrap="wrap" gap="2" justify="center" mb="4">
+      <Flex wrap="wrap" gap="2" justify="center" mb="4" className="emotion-button-container">
         {Object.keys(emotions).map(emotion => (
           <EmotionButton 
             key={emotion} 
@@ -193,7 +193,7 @@ function EmotionSelector({ emotions, level, parentEmotion, language }) {
         ))}
       </Flex>
       {level > 0 && (
-        <Button variant="outline" onClick={() => navigate(-1)}>
+        <Button variant="outline" onClick={() => navigate(-1)} className="back-button">
           <ArrowLeftIcon /> {t.back}
         </Button>
       )}
@@ -212,18 +212,17 @@ function SuccessPage({ language }) {
   return (
     <Box className="success-page">
       <Flex direction="column" align="center" gap="4">
-        <Text size="9">{icon}</Text>
-        <Text size="6">{t.youAreFeeling}</Text>
-        <Text size="8" weight="bold" style={{ color: `var(--${color}-11)` }}>
+        <Text size="9" className="emotion-icon">{icon}</Text>
+        <Text size="6" className="feeling-text">{t.youAreFeeling}</Text>
+        <Text size="8" weight="bold" style={{ color: `var(--${color}-11)` }} className="emotion-text">
           {emotionTranslations[language][emotion] || emotion}
         </Text>
-        <Box mt="4" mb="4" style={{ maxWidth: '80%', textAlign: 'center' }}>
-          <Text size="3" style={{ fontStyle: 'italic' }}>"{quote.quote}"</Text>
-          <br />
-          <Text size="2" mt="2" style={{ color: 'var(--gray-8)' }}>Alan Watts, {quote.source}</Text>
+        <Box mt="4" mb="4" className="quote-container">
+          <Text size="3" style={{ fontStyle: 'italic' }} className="quote-text">"{quote.quote}"</Text>
+          <Text size="2" mt="2" style={{ color: 'var(--gray-8)' }} className="quote-source">Alan Watts, {quote.source}</Text>
         </Box>
       </Flex>
-      <Button onClick={() => navigate('/')} mt="6">
+      <Button onClick={() => navigate('/')} mt="6" className="start-over-button">
         <ReloadIcon /> {t.startOver}
       </Button>
     </Box>
@@ -264,7 +263,7 @@ function App() {
     <Theme accentColor={accentColor} radius="large" scaling="105%">
       <Router>
         <Box className="page-background" style={{ backgroundColor: `var(--${accentColor}-2)` }}>
-          <Container size="2">
+          <Container size="2" className="main-container">
             <Box className="App">
               <Button 
                 className="language-toggle" 
@@ -292,6 +291,9 @@ function App() {
       </Router>
     </Theme>
   );
+}
+
+export default App;
 }
 
 export default App;
