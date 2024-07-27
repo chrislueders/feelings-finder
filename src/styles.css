@@ -16,12 +16,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
 .page-background {
-  min-height: 100vh;
+  min-height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .main-container {
@@ -35,11 +44,11 @@ body {
   box-shadow: var(--shadow-4);
   box-sizing: border-box;
   position: relative;
+  overflow-x: hidden;
   width: 100%;
   max-width: 100%;
-
   margin: 0 auto;
-  padding: 40px;
+  padding: 20px;
   text-align: center;
   min-height: calc(100vh - 80px);
   display: flex;
@@ -57,19 +66,21 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 15px;
+  gap: 10px;
+  width: 100%;
   max-width: 100%;
 }
 
 .emotion-button {
   text-transform: capitalize;
   transition: filter 0.3s ease;
-  flex: 0 1 calc(33.333% - 15px);
-  max-width: calc(33.333% - 15px);
-  min-width: 120px;
+  flex: 1 1 calc(50% - 10px);
+  max-width: calc(50% - 10px);
+  min-width: auto;
   white-space: normal;
   height: auto;
-  padding: 10px 15px;
+  font-size: 14px;
+  padding: 10px 5px;
 }
 
 .language-toggle {
@@ -147,7 +158,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1;
   color: var(--gray-12);
   background-color: var(--gray-2);
@@ -241,11 +252,11 @@ body {
   }
 
   .App {
-    padding: 15px;
+    padding: 10px;
   }
 
   .app-title {
-    font-size: 1.8rem !important;
+    font-size: 1.5rem !important;
   }
 
   .instruction-text {

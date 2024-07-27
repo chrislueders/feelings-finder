@@ -211,6 +211,7 @@ function EmotionSelector({ emotions, level, parentEmotion, language }) {
           </Accordion.Item>
         </Accordion.Root>
       )}
+      <br />
       <Text size="5" mb="4" weight="bold">
         {level === 0 ? t.chooseEmotion :
          level === 1 ? t.chooseMoreSpecific :
