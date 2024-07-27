@@ -24,24 +24,42 @@ body {
   padding: 20px;
 }
 
+.main-container {
+  width: 100%;
+  max-width: 600px;
+}
+
 .App {
   background-color: var(--color-background);
   border-radius: var(--radius-3);
   box-shadow: var(--shadow-4);
   position: relative;
-  width: 90%;
-  max-width: 500px;
+  width: 100%;
   margin: 0 auto;
-  padding: 40px;
+  padding: 20px;
   text-align: center;
-  height: 600px;
-  overflow-y: auto;
+  min-height: calc(100vh - 40px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .emotion-selector {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.emotion-button-container {
+  max-width: 100%;
+}
+
+.emotion-button {
+  text-transform: capitalize;
+  transition: filter 0.3s ease;
+  margin: 5px;
+  flex: 1 0 calc(33.333% - 10px);
+  max-width: calc(33.333% - 10px);
 }
 
 .language-toggle {
@@ -53,11 +71,85 @@ body {
 
 .app-title {
   margin-bottom: 30px !important;
+  font-size: 2rem !important;
 }
 
-@media (max-width: 768px) {
+.instruction-text {
+  font-size: 1.2rem !important;
+}
+
+.success-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.emotion-icon {
+  font-size: 4rem !important;
+}
+
+.feeling-text {
+  font-size: 1.5rem !important;
+}
+
+.emotion-text {
+  font-size: 2rem !important;
+}
+
+.quote-container {
+  max-width: 90%;
+  margin: 20px auto;
+}
+
+.quote-text {
+  font-size: 1rem !important;
+}
+
+.quote-source {
+  font-size: 0.8rem !important;
+}
+
+.start-over-button {
+  margin-top: 20px !important;
+}
+
+@media (max-width: 480px) {
   .App {
-    padding: 30px;
-    height: 500px;
+    padding: 15px;
+  }
+
+  .app-title {
+    font-size: 1.5rem !important;
+  }
+
+  .instruction-text {
+    font-size: 1rem !important;
+  }
+
+  .emotion-button {
+    flex: 1 0 calc(50% - 10px);
+    max-width: calc(50% - 10px);
+  }
+
+  .emotion-icon {
+    font-size: 3rem !important;
+  }
+
+  .feeling-text {
+    font-size: 1.2rem !important;
+  }
+
+  .emotion-text {
+    font-size: 1.5rem !important;
+  }
+
+  .quote-text {
+    font-size: 0.9rem !important;
+  }
+
+  .quote-source {
+    font-size: 0.7rem !important;
   }
 }
