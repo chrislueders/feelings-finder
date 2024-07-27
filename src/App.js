@@ -253,18 +253,16 @@ function SuccessPage({ language }) {
 
   return (
     <Box className="success-page">
-      <Flex direction="column" align="center" gap="4">
-        <Text size="9">{icon}</Text>
-        <Text size="6">{t.youAreFeeling}</Text>
-        <Text size="8" weight="bold" style={{ color: `var(--${color}-11)` }}>
-          {emotionTranslations[language][emotion] || emotion}
-        </Text>
-        <Box mt="4" mb="4" className="quote-container">
-          <Text size="3" style={{ fontStyle: 'italic' }} className="quote-text">"{quote.quote}"</Text>
-          <Text size="2" mt="2" style={{ color: 'var(--gray-8)' }} className="quote-source">Alan Watts, {quote.source}</Text>
-        </Box>
-      </Flex>
-      <Button onClick={() => navigate('/')} mt="6">
+      <Text size="9">{icon}</Text>
+      <Text size="6">{t.youAreFeeling}</Text>
+      <Text size="8" weight="bold" style={{ color: `var(--${color}-11)` }}>
+        {emotionTranslations[language][emotion] || emotion}
+      </Text>
+      <Box className="quote-container">
+        <Text size="3" style={{ fontStyle: 'italic' }} className="quote-text">"{quote.quote}"</Text>
+        <Text size="2" style={{ color: 'var(--gray-8)' }} className="quote-source">Alan Watts, {quote.source}</Text>
+      </Box>
+      <Button onClick={() => navigate('/')} className="start-over-button">
         <ReloadIcon /> {t.startOver}
       </Button>
     </Box>

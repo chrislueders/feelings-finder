@@ -35,6 +35,7 @@ body, html, #root {
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  text-align: center;
 }
 
 .emotion-button-container {
@@ -83,7 +84,7 @@ body, html, #root {
   background-color: transparent;
   padding: 0 20px;
   height: 45px;
-  flex: 1;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -92,6 +93,8 @@ body, html, #root {
   color: var(--gray-12);
   box-shadow: 0 1px 0 var(--gray-6);
   background-color: white;
+  border: none;
+  cursor: pointer;
 }
 
 .AccordionTrigger:hover {
@@ -112,6 +115,17 @@ body, html, #root {
 
 .AccordionTrigger[data-state='open'] > .AccordionChevron {
   transform: rotate(180deg);
+}
+
+.success-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.start-over-button {
+  margin-top: 20px;
 }
 
 @media (max-width: 480px) {
