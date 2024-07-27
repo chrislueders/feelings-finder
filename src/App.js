@@ -302,7 +302,7 @@ function App() {
   const [accentColor, setAccentColor] = useState('blue');
 
   return (
-    <Theme accentColor={accentColor} radius="large" scaling="105%">
+    <Theme accentColor={accentColor} radius="large" scaling="100%">
       <Router>
         <Box className="page-background" style={{ backgroundColor: `var(--${accentColor}-2)` }}>
           <Container size="2">
